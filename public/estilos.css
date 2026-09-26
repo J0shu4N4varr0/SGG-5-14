@@ -1,3 +1,32 @@
-body{
-background-color: #1a1919;
+body {
+    background-color: #1a1919;
+    color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+nav div {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4ecdc4;
+    color: #111111;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #38b2ac;
 }
