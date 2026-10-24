@@ -9,7 +9,7 @@
 <body>
     <nav>
         <div>
-            <a href="index.php" class="btn">Inicio</a>
+            <p>¿Ya tienes una cuenta?</p>
             <a href="registro.php" class="btn">Registrarse</a>
         </div>
     </nav>
