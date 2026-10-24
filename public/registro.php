@@ -9,11 +9,12 @@
 <body>
     <nav>
         <div>
-            <p>¿Ya tienes una cuenta?</p>
+            <a href="index.php" class="btn">Inicio</a>
+             <p>¿Ya tienes una cuenta?</p>
             <a href="login.php" class="btn">Ingresar</a>
         </div>
     </nav>
-    <form action="" method="post">
+    <form action="" method="post" class="login-form">
         <label for="name">Nombre de usuario:</label>
         <input type="text" id="name" name="name" required>
         <label for="lastname">Apellido:</label>

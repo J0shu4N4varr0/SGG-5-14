@@ -9,11 +9,12 @@
 <body>
     <nav>
         <div>
+            <a href="index.php" class="btn">Inicio</a>
             <p>¿No tienes cuenta?</p>
             <a href="registro.php" class="btn">Registrarse</a>
         </div>
     </nav>
-    <form action="" method="post">
+    <form action="" method="post" class="login-form">
         <label for="email">Correo electrónico:</label>
         <input type="email" id="email" name="email" required>
         <label for="password">Contraseña:</label>

@@ -30,3 +30,49 @@ nav div {
 .btn:hover {
     background-color: #38b2ac;
 }
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: min(100% - 40px, 380px);
+    margin: 40px auto;
+    padding: 28px;
+    box-sizing: border-box;
+    background-color: #252323;
+    border-radius: 12px;
+}
+
+.login-form label {
+    font-weight: bold;
+}
+
+.login-form input {
+    padding: 11px 12px;
+    border: 1px solid #666;
+    border-radius: 6px;
+    background-color: #1a1919;
+    color: #f5f5f5;
+    font: inherit;
+}
+
+.login-form input:focus {
+    outline: 2px solid #4ecdc4;
+    outline-offset: 2px;
+}
+
+.login-form button {
+    margin-top: 8px;
+    padding: 11px 18px;
+    border: 0;
+    border-radius: 8px;
+    background-color: #4ecdc4;
+    color: #111;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #38b2ac;
+}
