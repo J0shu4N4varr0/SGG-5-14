@@ -13,6 +13,12 @@
             <a href="registro.php" class="btn">Registrarse</a>
         </div>
     </nav>
-    <p>Formulario de inicio de sesión</p>
+    <form action="" method="post">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Iniciar sesión</button>
+    </form>
 </body>
 </html>
