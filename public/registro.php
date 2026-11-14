@@ -1,5 +1,4 @@
-<?php require_once '../includes/database.php'; ?>
-<!DOCTYPE html>
+<!DOCTYPE html><?php require_once __DIR__ . '/../includes/database.php'; ?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
