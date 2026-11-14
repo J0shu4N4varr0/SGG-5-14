@@ -9,7 +9,10 @@
 <body>
     <?php
         include '../includes/header.php';
+        echo 'Sistema gestor de gastos', PHP_EOL;
+        
         include '../includes/footer.php';
     ?>
+    
 </body>
 </html>
