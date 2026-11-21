@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['usuario_id'] = (int) $usuario['id'];
                 $_SESSION['usuario_nombre'] = $usuario['nombre'];
 
-                // Actualiza el hash si el algoritmo por defecto de PHP cambió
+                
                 if (password_needs_rehash($usuario['password_hash'], PASSWORD_DEFAULT)) {
                     $upd = $pdo->prepare('UPDATE usuarios SET password_hash = :hash WHERE id = :id');
                     $upd->execute([':hash' => password_hash($password, PASSWORD_DEFAULT), ':id' => $usuario['id']]);
@@ -33,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
 
-            // Mensaje genérico: no revela si el correo existe o no.
             $errores[] = 'Correo o contraseña incorrectos.';
         } catch (PDOException $e) {
             error_log('Login: ' . $e->getMessage());

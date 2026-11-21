@@ -11,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     $confirm  = $_POST['confirm_password'] ?? '';
 
-    // Se conservan los datos (menos las contraseñas) para volver a mostrarlos si hay errores.
     $valores = ['name' => $nombre, 'lastname' => $apellido, 'email' => $email];
 
     if ($nombre === '' || mb_strlen($nombre) > 100) {
@@ -24,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores[] = 'El correo electrónico no es válido.';
     }
 
-    // Validación estricta de contraseña
     if (strlen($password) < 8
         || !preg_match('/[a-z]/', $password)
         || !preg_match('/[A-Z]/', $password)
@@ -38,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!$errores) {
         try {
-            // Verificación de correo no duplicado
             $stmt = $pdo->prepare('SELECT id FROM usuarios WHERE email = :email');
             $stmt->execute([':email' => $email]);
 
@@ -60,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
         } catch (PDOException $e) {
-            // 23000 = violación de UNIQUE (dos registros simultáneos con el mismo correo)
+            
             if ($e->getCode() === '23000') {
                 $errores[] = 'Ya existe una cuenta registrada con ese correo.';
             } else {
