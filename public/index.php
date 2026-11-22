@@ -143,6 +143,7 @@ $mesActual = MESES[(int) date('n')] . ' de ' . date('Y');
             <h1>Sistema Gestor de Gastos</h1>
             <p>Registra en qué gastas tu dinero y mira, mes a mes, cuánto va a cada categoría. Todo en tu propio equipo, con tu propia base de datos.</p>
             <div class="hero-acciones">
+                <a href="index.php" class="btn">Inicio</a>
                 <a href="registro.php" class="btn">Crear cuenta</a>
                 <a href="login.php" class="btn btn-sec">Ya tengo cuenta</a>
             </div>
