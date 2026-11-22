@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . '/../includes/helpers.php';
 require_once __DIR__ . '/../includes/database.php';
 
 $errores = [];
@@ -23,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['usuario_id'] = (int) $usuario['id'];
                 $_SESSION['usuario_nombre'] = $usuario['nombre'];
 
-                
+                // Actualiza el hash si el algoritmo por defecto de PHP cambió
                 if (password_needs_rehash($usuario['password_hash'], PASSWORD_DEFAULT)) {
                     $upd = $pdo->prepare('UPDATE usuarios SET password_hash = :hash WHERE id = :id');
                     $upd->execute([':hash' => password_hash($password, PASSWORD_DEFAULT), ':id' => $usuario['id']]);
@@ -33,17 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
 
+            // Mensaje genérico: no revela si el correo existe o no.
             $errores[] = 'Correo o contraseña incorrectos.';
         } catch (PDOException $e) {
             error_log('Login: ' . $e->getMessage());
             $errores[] = 'No se pudo iniciar sesión. Revisa que la base de datos esté creada (includes/schema.sql).';
         }
     }
-}
-
-function e(string $s): string
-{
-    return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 }
 ?>
 <!DOCTYPE html>
@@ -52,6 +49,7 @@ function e(string $s): string
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
+    <script src="js/script.js"></script>
     <title>Ingreso</title>
 </head>
 <body>
